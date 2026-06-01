@@ -1,126 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Rohit-portfolio -website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Rohit Sharma - AI/ML Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+        /* Global Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #0a0a0a; color: white; scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; }
 
-        body {
-            background-color: rgb(0, 0, 0);
-            color: white;
-            font-family: "Poppins", sans-serif;
-        }
-
+        /* Navbar */
         nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 80px;
-            background-color: rgb(58, 58, 132);
+            display: flex; justify-content: space-between; align-items: center;
+            background: linear-gradient(90deg, #3a3a84, #1e1e3f);
+            padding: 15px 5%; position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(8px); box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
+        .navbar-brand { font-size: 1.5rem; font-weight: 700; }
+        .navbar-menu { display: flex; gap: 20px; align-items: center; list-style: none; }
+        .navbar-menu li a { font-weight: 500; transition: 0.3s; }
+        .navbar-menu li a:hover { color: #9553de; }
+        .btn-navbar {
+            padding: 8px 15px; background: #9553de; border-radius: 5px; color: white; transition: 0.3s;
         }
+        .btn-navbar:hover { background: #7a36b8; }
+        .navbar-social { display: flex; gap: 15px; list-style: none; }
+        .navbar-social a { font-weight: 500; transition: 0.3s; text-decoration: none; }
+        .navbar-social a:hover { color: #9553de; }
 
-        nav ul li {
-            list-style: none;
-            margin: 0 20px;
+        /* Hero Section */
+        .hero { display: flex; justify-content: space-between; align-items: center; padding: 5% 10%; min-height: 90vh; }
+        .hero-left { flex: 1; }
+        .hero-left h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .hero-left h1 .highlight { color: #9553de; }
+        .hero-left p { font-size: 1.2rem; margin-bottom: 1.5rem; color: #a0a0a0; }
+        .cta-buttons { display: flex; gap: 20px; }
+        .cta-buttons a {
+            padding: 12px 25px; border-radius: 5px; font-weight: 600; transition: 0.3s;
         }
+        .btn-primary { background: #9553de; color: white; }
+        .btn-primary:hover { background: #7a36b8; }
+        .btn-secondary { background: transparent; border: 2px solid #9553de; color: #9553de; }
+        .btn-secondary:hover { background: #9553de; color: white; }
+        .hero-right { flex: 1; text-align: right; }
+        .hero-right img { max-width: 100%; height: auto; }
 
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-        }
+        /* Sections */
+        section { padding: 5% 10%; }
+        h2 { font-size: 2.2rem; margin-bottom: 1rem; color: #9553de; }
+        p { font-size: 1rem; color: #d0d0d0; }
 
-        nav ul li a:hover {
-            color: rgb(182, 128, 233);
-            font-size: 1.05rem;
-        }
+        /* About Section */
+        .about { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+        .about img { max-width: 300px; border-radius: 10px; }
+        .about-text { flex: 1; }
 
-        .left {
-            font-size: 1.5rem;
-        }
+        /* Projects Section */
+        .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .project-card { background: #1a1a1a; padding: 20px; border-radius: 10px; transition: 0.3s; }
+        .project-card:hover { transform: translateY(-5px); background: #2a2a2a; }
+        .project-card h3 { color: #9553de; margin-bottom: 10px; }
+        .project-card p { font-size: 0.95rem; color: #c0c0c0; }
+        .project-card a { display: inline-block; margin-top: 10px; color: #9553de; font-weight: 500; }
 
-        .firstSection {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            /* changed from auto */
-            margin: 10vh 5%;
-            /* better responsive margin */
-        }
+        /* Research Section */
+        .research { display: flex; flex-direction: column; gap: 15px; }
+        .research-item { background: #1a1a1a; padding: 15px; border-radius: 10px; transition: 0.3s; }
+        .research-item h4 { color: #9553de; margin-bottom: 5px; }
+        .research-item p { color: #c0c0c0; }
 
-        .firstSection>div {
-            width: 45%;
-            /* corrected selector */
-        }
+        /* Contact Section */
+        .contact form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; }
+        .contact input, .contact textarea { padding: 10px; border-radius: 5px; border: none; background: #1a1a1a; color: white; resize: none; }
+        .contact button { padding: 12px; border: none; border-radius: 5px; background: #9553de; color: white; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .contact button:hover { background: #7a36b8; }
 
-        .leftSection {
-            background-color: rgb(0, 0, 0);
-            font-size: 2rem;
-        }
-
-        .rightSection img {
-            width: 100%;
-            /* corrected width */
-            max-width: 400px;
-            /* optional max width */
-        }
-
-        .purple {
-            color: rgb(149, 71, 222);
-        }
-
-        .green {
-            color: green;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding: 5%; }
+            .hero-left, .hero-right { width: 100%; }
+            .hero-right { margin-bottom: 30px; }
+            .about { flex-direction: column; text-align: center; }
+            .about img { margin-bottom: 20px; }
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <nav>
-            <div class="left">Rohit Sharma's Portfolio</div>
-            <div class="right">
-                <ul>
-                    <li><a href="">
-                            Home
-                        </a></li>
-                    <li><a href="">
-                            About
-                        </a></li>
-                    <li><a href="">
-                            Projects
-                        </a></li>
-                    <li><a href="">
-                            Contact Me
-                        </a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section class="firstSection">
-            <div class="leftSection">Hi my name is <span class="purple">Rohit Sharma</span>
-                <div>I am <span class="green">AI/ML</span> Student</div>
-            </div>
-            <div class="rightSection">
-                <img src="img3.png" alt="">
 
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar-brand">Rohit Sharma's portfolio</div>
+        <ul class="navbar-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact" class="btn-navbar">Contact Me</a></li>
+        </ul>
+        <ul class="navbar-social">
+            <li><a href="https://github.com/your-github" target="_blank">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/rohit-sharma-b18064260/" target="_blank">LinkedIn</a></li>
+            <li><a href="mailto:your-sharmarohit492004@gmail.com">Email</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-left">
+            <h1>Hi, I'm <span class="highlight">Rohit Sharma</span></h1>
+            <p>AI/ML Developer | Turning data into intelligent solutions</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn-primary">See My Work</a>
+                <a href="#certifications" class="btn-secondary">Certifications</a>
             </div>
-        </section>
-    </main>
+        </div>
+        <div class="hero-right">
+            <img src="img3.png" alt="AI/ML Illustration">
+        </div>
+    </section>
+
+ <!-- About Section -->
+<section id="about">
+    <h2>About Me</h2>
+    <div class="about">
+      <img src="img7.png" alt="Rohit Sharma">
+      <div class="about-text">
+        <p>
+          I enjoy working with data and building machine learning and deep learning models — 
+          from regression and clustering to CNNs, RNNs, LSTMs, and transformers. 
+          I’m currently exploring LangChain technology and have contributed to research, 
+          including a published review paper, two papers under review, and a patent in progress.
+        </p>
+  
+        <!-- Accordion -->
+        <div class="accordion">
+          
+          <button class="accordion-btn">🎓 Education</button>
+          <div class="accordion-content">
+            <ul>
+              <li><b>B.Tech. CSE (AI & ML)</b>, Jawaharlal Nehru Govt. Engineering College, Sundernagar (HPTU) — 2022–2026 (Exp.)</li>
+              <li><b>Senior Secondary (Non-Medical)</b>, S.D. Public School, Hamirpur — 2021–2022 (86%)</li>
+              <li><b>Matriculation (Science)</b>, S.D. Public School, Hamirpur — 2019–2020 (85%)</li>
+            </ul>
+          </div>
+  
+          <button class="accordion-btn">💡 Skills</button>
+          <div class="accordion-content">
+            <p><b>Programming:</b> Python, SQL, C++</p>
+            <p><b>ML/DL:</b> Regression, Classification, CNN, RNN, LSTM, Transformers</p>
+            <p><b>NLP/LLM:</b> Text Analysis, RAG, LangChain</p>
+            <p><b>Tools:</b> TensorFlow, Keras, Pandas, OpenCV, Power BI, Tableau, Excel</p>
+          </div>
+  
+          <button class="accordion-btn">💼 Experience</button>
+          <div class="accordion-content">
+            <ul>
+              <li><b>AI/ML Intern – Federated Learning</b>, IIIT Una — 2025<br>
+                  Worked on federated learning pipelines for distributed model training.</li>
+              <li><b>AI/Data Research Intern</b>, IIIT Una — Jun–Jul 2024<br>
+                  Processed medical imaging datasets and automated workflows.</li>
+            </ul>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Accordion CSS -->
+  <style>
+  .accordion-btn {
+    width: 100%;
+    padding: 12px;
+    background: #1a1a1a;
+    color: white;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .accordion-btn:hover {
+    background: #2a2a2a;
+    color: #9553de;
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: #121212;
+    padding: 0 10px;
+    border-radius: 5px;
+  }
+  .accordion-content ul, 
+  .accordion-content p {
+    margin: 10px 0;
+  }
+  </style>
+  
+  <!-- Accordion JS -->
+  <script>
+  const accBtns = document.querySelectorAll(".accordion-btn");
+  
+  accBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("active");
+      let content = btn.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+  </script>
+  
+  
+      
+
+      
+  <!-- Certifications Section -->
+<section id="certifications">
+    <h2>Certifications</h2>
+    <div class="certifications">
+      
+      <button class="cert-btn" onclick="showCertificate('cert1')">Deep Learning Workshop - IIT Mandi (2025)</button>
+      <button class="cert-btn" onclick="showCertificate('cert2')">AI/ML Workshop - IIT Mandi (2024)</button>
+      <button class="cert-btn" onclick="showCertificate('cert3')">Supervised ML - DeepLearning.AI (Stanford) (2024)</button>
+      <!--<button class="cert-btn" onclick="showCertificate('cert4')">Python 3.4.3 Training - IIT Bombay (2023)</button>-->
+      
+      <!-- Certificate Images -->
+      <div id="cert-display">
+        <img id="cert1" class="cert-img" src="cert1.jpg" alt="Deep Learning Workshop Certificate - IIT Mandi">
+        <img id="cert2" class="cert-img" src="cert2.jpg" alt="AI/ML Workshop Certificate - IIT Mandi">
+        <img id="cert3" class="cert-img" src="cert3.png" alt="Supervised ML - DeepLearning.AI Certificate">
+        <!--<img id="cert4" class="cert-img" src="cert4.png" alt="Python 3.4.3 Training Certificate - IIT Bombay">-->
+      </div>
+    </div>
+  </section>
+  
+  <!-- CSS -->
+  <style>
+  .certifications { display: flex; flex-direction: column; gap: 15px; }
+  .cert-btn {
+    padding: 12px; background: #1a1a1a; color: white; border: none;
+    border-radius: 5px; cursor: pointer; font-weight: 600; text-align: left;
+    transition: 0.3s;
+  }
+  .cert-btn:hover { background: #2a2a2a; color: #9553de; }
+  #cert-display { margin-top: 20px; text-align: center; }
+  .cert-img {
+    display: none; max-width: 100%; border-radius: 10px; margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
+  </style>
+  
+  <!-- JS -->
+  <script>
+  function showCertificate(certId) {
+    document.querySelectorAll('.cert-img').forEach(img => img.style.display = "none");
+    document.getElementById(certId).style.display = "block";
+  }
+  </script>
+  
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>AI-powered predictive model for stock prices using LSTM networks.</p>
+                <a href="#">View on GitHub</a>
+            </div>
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Computer vision project detecting anomalies in medical images using CNN.</p>
+                <a href="#">View on GitHub</a>
+            </div>
+            <div class="project-card">
+                <h3>Project 3</h3>
+                <p>Natural language processing system for sentiment analysis on social media.</p>
+                <a href="#">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <h2>Research & Publications</h2>
+        <div class="research">
+            <div class="research-item">
+                <h4>Paper 1 Title</h4>
+                <p>Published in XYZ Journal, focused on deep learning for healthcare applications.</p>
+            </div>
+            <div class="research-item">
+                <h4>Paper 2 Title</h4>
+                <p>Exploring reinforcement learning techniques for optimization problems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact">
+            <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <p style="margin-top:20px;">Or reach me via: 
+                <a href="mailto:your-email@example.com" style="color:#9553de;">Email</a> | 
+                <a href="https://www.linkedin.com/in/your-linkedin/" style="color:#9553de;" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/bytebuddy99" style="color:#9553de;" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </section>
+
 </body>
-
 </html>
