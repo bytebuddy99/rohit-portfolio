@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Rohit-portfolio -website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            font-family: "Poppins", sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(58, 58, 132);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(182, 128, 233);
+            font-size: 1.05rem;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            /* changed from auto */
+            margin: 10vh 5%;
+            /* better responsive margin */
+        }
+
+        .firstSection>div {
+            width: 45%;
+            /* corrected selector */
+        }
+
+        .leftSection {
+            background-color: rgb(0, 0, 0);
+            font-size: 2rem;
+        }
+
+        .rightSection img {
+            width: 100%;
+            /* corrected width */
+            max-width: 400px;
+            /* optional max width */
+        }
+
+        .purple {
+            color: rgb(149, 71, 222);
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Rohit Sharma's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="">
+                            Home
+                        </a></li>
+                    <li><a href="">
+                            About
+                        </a></li>
+                    <li><a href="">
+                            Projects
+                        </a></li>
+                    <li><a href="">
+                            Contact Me
+                        </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">Hi my name is <span class="purple">Rohit Sharma</span>
+                <div>I am <span class="green">AI/ML</span> Student</div>
+            </div>
+            <div class="rightSection">
+                <img src="img3.png" alt="">
+
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
